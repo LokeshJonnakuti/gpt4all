@@ -13,3 +13,4 @@ jsonlines
 nomic
 scikit-learn
 matplotlib
+security==1.2.1
