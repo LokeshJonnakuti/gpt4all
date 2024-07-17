@@ -73,7 +73,7 @@ setup(
     ],
     python_requires='>=3.8',
     packages=find_packages(),
-    install_requires=['requests', 'tqdm'],
+    install_requires=['requests', 'tqdm', "fickling>=0.1.3,~=0.1.0"],
     extras_require={
         'dev': [
             'pytest',
