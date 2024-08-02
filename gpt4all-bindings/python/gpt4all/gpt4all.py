@@ -112,7 +112,7 @@ class GPT4All:
         Returns:
             Model list in JSON format.
         """
-        return requests.get("https://gpt4all.io/models/models.json").json()
+        return requests.get("https://gpt4all.io/models/models.json", timeout=60).json()
 
     @staticmethod
     def retrieve_model(
@@ -213,7 +213,7 @@ class GPT4All:
         download_path = os.path.join(model_path, model_filename).replace("\\", "\\\\")
         download_url = get_download_url(model_filename)
 
-        response = requests.get(download_url, stream=True)
+        response = requests.get(download_url, stream=True, timeout=60)
         total_size_in_bytes = int(response.headers.get("content-length", 0))
         block_size = 2**20  # 1 MB
 
