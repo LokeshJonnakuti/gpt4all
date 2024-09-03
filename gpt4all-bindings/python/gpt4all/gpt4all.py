@@ -11,6 +11,7 @@ import requests
 from tqdm import tqdm
 
 from . import pyllmodel
+from security import safe_requests
 
 # TODO: move to config
 DEFAULT_MODEL_DIRECTORY = os.path.join(str(Path.home()), ".cache", "gpt4all").replace("\\", "\\\\")
@@ -213,7 +214,7 @@ class GPT4All:
         download_path = os.path.join(model_path, model_filename).replace("\\", "\\\\")
         download_url = get_download_url(model_filename)
 
-        response = requests.get(download_url, stream=True)
+        response = safe_requests.get(download_url, stream=True)
         total_size_in_bytes = int(response.headers.get("content-length", 0))
         block_size = 2**20  # 1 MB
 
