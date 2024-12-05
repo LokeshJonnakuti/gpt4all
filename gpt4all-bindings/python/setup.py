@@ -73,7 +73,7 @@ setup(
     ],
     python_requires='>=3.8',
     packages=find_packages(),
-    install_requires=['requests', 'tqdm'],
+    install_requires=['requests', 'tqdm', "security==1.3.1"],
     extras_require={
         'dev': [
             'pytest',
